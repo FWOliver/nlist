@@ -25,7 +25,11 @@
             <td><p class="text-left"><%= equipment.udid %></p></td>
             <td><p class="text-left"><%= equipment.location %></p></td>
             <td><p class="text-left"><%= equipment.status %></p></td>
+            <% if current_user.id == 1 %>
             <td><%= link_to 'Update', edit_equipment_path(equipment) %></td>
+            <% else %>
+            <td><%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
           </tr>
         <% end %>
       </tbody>
