@@ -1,0 +1,37 @@
+<p>
+  <strong>Name:</strong>
+  <%= @equipment.name %>
+</p>
+
+<p>
+  <strong>Kindof:</strong>
+  <%= @equipment.kindof %>
+</p>
+
+<p>
+  <strong>Serial:</strong>
+  <%= @equipment.serial %>
+</p>
+
+<p>
+  <strong>Os:</strong>
+  <%= @equipment.os %>
+</p>
+
+<p>
+  <strong>Udid:</strong>
+  <%= @equipment.udid %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @equipment.location %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @equipment.status %>
+</p>
+
+<%= link_to 'Edit', edit_equipment_path(@equipment) %> |
+<%= link_to 'Back', equipment_index_path %>

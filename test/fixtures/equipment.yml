@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  kindof: MyString
+  serial: MyString
+  os: MyString
+  udid: MyString
+  location: MyString
+  status: MyString
+
+two:
+  name: MyString
+  kindof: MyString
+  serial: MyString
+  os: MyString
+  udid: MyString
+  location: MyString
+  status: MyString

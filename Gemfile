@@ -19,6 +19,7 @@ gem 'devise'
 
 group :development, :test do
   gem 'byebug', platform: :mri
+  gem 'sqlite3'
 end
 
 group :development do
@@ -29,10 +30,6 @@ end
 
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-
-group :development, :test do
-     gem 'sqlite3'
-end
 
 group :production do
      gem 'pg'

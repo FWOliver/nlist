@@ -1,0 +1,46 @@
+<%= form_for(equipment) do |f| %>
+  <% if equipment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(equipment.errors.count, "error") %> prohibited this equipment from being saved:</h2>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :kindof %>
+    <%= f.text_field :kindof %>
+  </div>
+
+  <div class="field">
+    <%= f.label :serial %>
+    <%= f.text_field :serial %>
+  </div>
+
+  <div class="field">
+    <%= f.label :os %>
+    <%= f.text_field :os %>
+  </div>
+
+  <div class="field">
+    <%= f.label :udid %>
+    <%= f.text_field :udid %>
+  </div>
+
+  <div class="field">
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.text_field :status %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
