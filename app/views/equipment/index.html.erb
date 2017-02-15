@@ -37,3 +37,10 @@
 <br>
 
 <%= link_to 'Register a New Test Device', new_equipment_path %>
+
+<h2>Import Devices using CSV</h2>
+
+<%= form_tag import_equipment_index_path, multipart: true do %>
+  <%= file_field_tag :file %>
+  <%= submit_tag "Import" %>
+<% end %>

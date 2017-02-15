@@ -16,3 +16,5 @@ module Nlist
 	config.assets.initialize_on_precompile = false
   end
 end
+
+require 'csv'

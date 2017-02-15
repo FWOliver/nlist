@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
-  resources :equipment
+  resources :equipment do
+  collection { post :import }
+end
+  
   devise_for :users
 root "pages#home"
 

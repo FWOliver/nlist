@@ -61,6 +61,11 @@ class EquipmentController < ApplicationController
     end
   end
 
+  def import
+    Equipment.import(params[:file])
+    redirect_to root_url, notice: "Devices imported."
+  end  
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_equipment
