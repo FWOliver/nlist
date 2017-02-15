@@ -1,10 +1,12 @@
 class EquipmentController < ApplicationController
   before_action :set_equipment, only: [:show, :edit, :update, :destroy]
   before_action :authenticate_user!
+
+  helper_method :sort_column, :sort_direction
   # GET /equipment
   # GET /equipment.json
   def index
-    @equipment = Equipment.all
+    @equipment = Equipment.order(sort_column + " " + sort_direction)
   end
 
   # GET /equipment/1
@@ -76,4 +78,15 @@ class EquipmentController < ApplicationController
     def equipment_params
       params.require(:equipment).permit(:name, :kindof, :serial, :os, :udid, :location, :status)
     end
+
+    def sort_column
+      Equipment.column_names.include?(params[:sort]) ? params[:sort] : "name"
+    end
+    
+    def sort_direction
+      %w[asc desc].include?(params[:direction]) ? params[:direction] : "asc"
+    end
+
+
+    
 end
