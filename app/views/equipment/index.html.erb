@@ -1,7 +1,7 @@
 <h1>Test Devices</h1>
 <div class="panel">
-<div class="table-bordered table-responsive text-center">
-    <table class="table table-bordered" style="border: 1px solid: #ddd !important;">
+<div class="table-bordered table-responsive text-center" >
+    <table class="table table-bordered" style="border: 2px solid: ">
       <thead>
         <tr>
           <th>Name</th>
@@ -11,23 +11,21 @@
           <th>UDID</th>
           <th>Location</th>
           <th>Status</th>
-          <th colspan="3"></th>
+          <th colspan="1"></th>
         </tr>
       </thead>
 
       <tbody>
         <% @equipment.each do |equipment| %>
           <tr>
-            <td><%= equipment.name %></td>
-            <td><%= equipment.kindof %></td>
-            <td><%= equipment.serial %></td>
-            <td><%= equipment.os %></td>
-            <td><%= equipment.udid %></td>
-            <td><%= equipment.location %></td>
-            <td><%= equipment.status %></td>
-            <td><%= link_to 'Show', equipment %></td>
-            <td><%= link_to 'Edit', edit_equipment_path(equipment) %></td>
-            <td><%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <td><p class="text-left"><%= equipment.name %></p></td>
+            <td><p class="text-left"><%= equipment.kindof %></p></td>
+            <td><p class="text-left"><%= equipment.serial %></p></td>
+            <td><p class="text-left"><%= equipment.os %></p></td>
+            <td><p class="text-left"><%= equipment.udid %></p></td>
+            <td><p class="text-left"><%= equipment.location %></p></td>
+            <td><p class="text-left"><%= equipment.status %></p></td>
+            <td><%= link_to 'Update', edit_equipment_path(equipment) %></td>
           </tr>
         <% end %>
       </tbody>
@@ -36,9 +34,9 @@
 </div>
 <br>
 
-<%= link_to 'Register a New Test Device', new_equipment_path %>
 
-<h2>Import Devices using CSV</h2>
+
+<h5>Import Devices using CSV</h5>
 
 <%= form_tag import_equipment_index_path, multipart: true do %>
   <%= file_field_tag :file %>

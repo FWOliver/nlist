@@ -1,6 +1,6 @@
 class EquipmentController < ApplicationController
   before_action :set_equipment, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!
   # GET /equipment
   # GET /equipment.json
   def index
@@ -28,7 +28,7 @@ class EquipmentController < ApplicationController
 
     respond_to do |format|
       if @equipment.save
-        format.html { redirect_to @equipment, notice: 'Equipment was successfully created.' }
+        format.html { redirect_to equipment_index_url, notice: 'Equipment was successfully created.' }
         format.json { render :show, status: :created, location: @equipment }
       else
         format.html { render :new }
@@ -42,7 +42,7 @@ class EquipmentController < ApplicationController
   def update
     respond_to do |format|
       if @equipment.update(equipment_params)
-        format.html { redirect_to @equipment, notice: 'Equipment was successfully updated.' }
+        format.html { redirect_to equipment_index_url, notice: 'Equipment was successfully updated.' }
         format.json { render :show, status: :ok, location: @equipment }
       else
         format.html { render :edit }
@@ -63,7 +63,7 @@ class EquipmentController < ApplicationController
 
   def import
     Equipment.import(params[:file])
-    redirect_to root_url, notice: "Devices imported."
+    redirect_to equipment_index_url, notice: "Devices imported."
   end  
 
   private
