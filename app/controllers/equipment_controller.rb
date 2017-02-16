@@ -7,6 +7,10 @@ class EquipmentController < ApplicationController
   # GET /equipment.json
   def index
     @equipment = Equipment.order(sort_column + " " + sort_direction)
+    respond_to do |format|
+      format.html
+      format.csv { send_data @equipment.to_csv }
+    end
   end
 
   # GET /equipment/1
