@@ -11,7 +11,7 @@ end
 
 def self.import(file)
   CSV.foreach(file.path, headers: true) do |row|
-    equipment = find_by_id(row["id"]) || new
+    equipment = find_by_id(row["name"]) || new
     equipment.attributes = row.to_hash
     equipment.save!
   end
