@@ -1,6 +1,14 @@
 <h1>Editing a Test Device</h1>
 
-<%= render 'form', equipment: @equipment %>
+
+
+  <% if current_user.id == 1 %>
+	<%= render 'form', equipment: @equipment %>
+  <% elsif current_user.id == 3 %>
+	<%= render 'form', equipment: @equipment %>
+  <% else %>
+  	<h3> Sorry, you are not permitted to update any existing device<h3/> 
+  <% end %>
 
 <%= link_to 'Show', @equipment %> |
 <%= link_to 'Back', equipment_index_path %>
