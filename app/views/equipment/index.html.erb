@@ -8,7 +8,6 @@
           <th><%= sortable "kindof", "Type" %></th>
           <th>Serial Number</th>
           <th><%= sortable "os", "OS Version" %></th>
-          <th>UDID</th>
           <th><%= sortable "location", "Location" %></th>
           <th><%= sortable "status", "Status" %></th>
           <th colspan="1"></th>
@@ -22,11 +21,16 @@
             <td><p class="text-left"><%= equipment.kindof %></p></td>
             <td><p class="text-left"><%= equipment.serial %></p></td>
             <td><p class="text-left"><%= equipment.os %></p></td>
-            <td><p class="text-left"><%= equipment.udid %></p></td>
             <td><p class="text-left"><%= equipment.location %></p></td>
             <td><p class="text-left"><%= equipment.status %></p></td>
-            <td><%= link_to 'Update', edit_equipment_path(equipment) %></td>
-            <td><%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% if current_user.id == 1 %>
+                <td><%= link_to 'Update', edit_equipment_path(equipment) %></td>
+                <td><%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+              <% elsif current_user.id == 3 %>
+                <td><%= link_to 'Update', edit_equipment_path(equipment) %></td>
+              <% else %>
+                <td><%= link_to 'show', equipment_path(equipment) %></td>
+              <% end %>
           </tr>
         <% end %>
       </tbody>
