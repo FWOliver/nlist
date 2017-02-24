@@ -1,24 +1,21 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This a simple app to monitor test devices we are managing.
 
-Things you may want to cover:
+Things you can do as admin:
 
-* Ruby version
+* Import & export csv
 
-* System dependencies
+* Create new, update existing & delete devices.
 
-* Configuration
+Things you can do as normal user (as well as admin user):
 
-* Database creation
+* Export a csv
 
-* Database initialization
+* View list and detail page of devices
 
-* How to run the test suite
+* Sort the table as per needed info.
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
+* Search the page by pressing cmd + f
 
 * ...
