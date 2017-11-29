@@ -1,3 +1,4 @@
+<% if current_user.id == 1 %>
 <%= form_for(equipment) do |f| %>
   <% if equipment.errors.any? %>
     <div id="error_explanation">
@@ -43,4 +44,109 @@
   <div class="actions">
     <%= f.submit %>
   </div>
+<% end %>
+<% elsif current_user.id == 3 %>
+<%= form_for(equipment) do |f| %>
+  <% if equipment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(equipment.errors.count, "error") %> prohibited this equipment from being saved:</h2>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %>
+    <%= f.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= f.label :kindof, "Type" %>
+    <%= f.text_field :kindof %>
+  </div>
+
+  <div class="field">
+    <%= f.label :serial, "Serial Number"  %>
+    <%= f.text_field :serial %>
+  </div>
+
+  <div class="field">
+    <%= f.label :os, "OS Version"  %>
+    <%= f.text_field :os %>
+  </div>
+
+  <div class="field">
+    <%= f.label :udid, "UDID"  %>
+    <%= f.text_field :udid %>
+  </div>
+
+  <div class="field">
+    <%= f.label :location %>
+    <%= f.text_field :location %>
+  </div>
+
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.text_field :status %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
+<% else %>
+<%= form_for(equipment) do |f| %>
+  <% if equipment.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(equipment.errors.count, "error") %> prohibited this equipment from being saved:</h2>
+    </div>
+  <% end %>
+
+<p>
+  <strong>Name:</strong>
+  <%= @equipment.name %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @equipment.kindof %>
+</p>
+
+<p>
+  <strong>Serial Number:</strong>
+  <%= @equipment.serial %>
+</p>
+
+<p>
+  <strong>OS Version:</strong>
+  <%= @equipment.os %>
+</p>
+
+<p>
+  <strong>UDID:</strong>
+  <%= @equipment.udid %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @equipment.location %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @equipment.status %>
+</p>
+
+  <div class="field">
+    <%= f.label :location, 'Name of the Borrower' %>
+    <%= f.select :location, [['N/A','N/A'],['Adam','Adam'],['Alex','Alex'],['Andre','Andre'],['Bridget','Bridget'],['David','David'],['Davide','Davide'],['Dimitrios','Dimitrios'],['Ella','Ella'],['Eloise','Eloise'],['Fabio S','Fabio S'],['Franchesca','Franchesca'],['Igor','Igor'],['Jayanth','Jayanth'],['Jenny','Jenny'],['Jonathan','Jonathan'],['Jose','Jose'],['Julien','Julien'],['Marc','Marc'],['Mari Angela','Mari Angela'],['Matt','Matt'],['Niki','Niki'],['Oliver','Oliver'],['Paul','Paul'],['Pedro','Pedro'],['Rita','Rita'],['Roberto','Roberto'],['Stelian','Stelian'],['Vlad','Vlad'],['Xavi','Xavi'],['Yevgeniy','Yevgeniy']] %>
+  </div>
+
+  <div class="field">
+    <%= f.label :status %>
+    <%= f.text_field :status %>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Confirm this transfer"%>
+  </div>
+<% end %>
 <% end %>
