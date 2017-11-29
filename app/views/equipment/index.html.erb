@@ -27,10 +27,8 @@
                 <td><%= link_to 'Show', equipment_path(equipment) %></td>
                 <td><%= link_to 'Update', edit_equipment_path(equipment) %></td>
                 <td><%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-              <% elsif current_user.id == 3 %>
-                <td><%= link_to 'Update', edit_equipment_path(equipment) %></td>
-                <td><%= link_to 'Show', equipment_path(equipment) %></td>
               <% else %>
+                <td><%= link_to 'Update', edit_equipment_path(equipment) %></td>
                 <td><%= link_to 'Show', equipment_path(equipment) %></td>
               <% end %>
           </tr>
