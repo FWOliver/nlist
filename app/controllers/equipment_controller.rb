@@ -68,9 +68,13 @@ class EquipmentController < ApplicationController
   end
 
   def import
-    Equipment.import(params[:file])
-    redirect_to equipment_index_url, notice: "Devices imported."
-  end  
+    begin
+      Equipment.import(params[:file])
+      redirect_to equipment_index_url, notice: "Devices are now imported."
+    rescue
+      redirect_to equipment_index_url, notice: "Invalid CSV file format."
+     end
+  end
 
   private
     # Use callbacks to share common setup or constraints between actions.
