@@ -24,12 +24,14 @@
             <td><p class="text-left"><%= equipment.location %></p></td>
             <td><p class="text-left"><%= equipment.status %></p></td>
               <% if current_user.id == 1 %>
+                <td><%= link_to 'Show', equipment_path(equipment) %></td>
                 <td><%= link_to 'Update', edit_equipment_path(equipment) %></td>
                 <td><%= link_to 'Destroy', equipment, method: :delete, data: { confirm: 'Are you sure?' } %></td>
               <% elsif current_user.id == 3 %>
                 <td><%= link_to 'Update', edit_equipment_path(equipment) %></td>
+                <td><%= link_to 'Show', equipment_path(equipment) %></td>
               <% else %>
-                <td><%= link_to 'show', equipment_path(equipment) %></td>
+                <td><%= link_to 'Show', equipment_path(equipment) %></td>
               <% end %>
           </tr>
         <% end %>
@@ -57,7 +59,7 @@
   <% else %>
     <h4>If you need to Upload a CSV, Please ask Oliver or Andre.<h4/> 
   <% end %>
-
+<%= flash[:notice] %>
 
 <br/>
   <a class="navbar-brand" href="http://nlist-things.herokuapp.com/equipment.csv">Download a CSV</a>
